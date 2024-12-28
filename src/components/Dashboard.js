@@ -7,7 +7,7 @@ import {
   initiateLoadMoreArtists
 } from '../actions/result';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import SearchResult from './SearchResult';
 import SearchForm from './SearchForm';
 import Header from './Header';
@@ -85,7 +85,7 @@ const Dashboard = (props) => {
           />
         </div>
       ) : (
-        <Redirect
+        <Navigate
           to={{
             pathname: '/',
             state: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes  } from 'react-router-dom';
 import Home from '../components/Home';
 import RedirectPage from '../components/RedirectPage';
 import Dashboard from '../components/Dashboard';
@@ -36,17 +36,17 @@ class AppRouter extends React.Component {
     return (
       <BrowserRouter>
         <div className="main">
-          <Switch>
+          <Routes>
             <Route
               path="/"
               exact={true}
-              render={(props) => (
+              element={(props) => (
                 <Home isValidSession={this.isValidSession} {...props} />
               )}
             />
             <Route
               path="/redirect"
-              render={(props) => (
+              element={(props) => (
                 <RedirectPage
                   isValidSession={this.isValidSession}
                   setExpiryTime={this.setExpiryTime}
@@ -56,12 +56,12 @@ class AppRouter extends React.Component {
             />
             <Route
               path="/dashboard"
-              render={(props) => (
+              element={(props) => (
                 <Dashboard isValidSession={this.isValidSession} {...props} />
               )}
             />
-            <Route component={NotFoundPage} />
-          </Switch>
+            <Route element={NotFoundPage} />
+          </Routes>
         </div>
       </BrowserRouter>
     );

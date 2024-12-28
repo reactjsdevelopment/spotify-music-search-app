@@ -3,7 +3,7 @@ import { Alert } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import Header from './Header';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const Home = (props) => {
   const {
@@ -23,7 +23,7 @@ const Home = (props) => {
   return (
     <React.Fragment>
       {isValidSession() ? (
-        <Redirect to="/dashboard" />
+        <Navigate to="/dashboard" />
       ) : (
         <div className="login">
           <Header />

@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { Button } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import AlbumsList from './AlbumsList';
 import ArtistsList from './ArtistsList';
 import PlayList from './PlayList';
@@ -18,7 +18,7 @@ const SearchResult = (props) => {
 
   if (!isValidSession()) {
     return (
-      <Redirect
+      <Navigate
         to={{
           pathname: '/',
           state: {
