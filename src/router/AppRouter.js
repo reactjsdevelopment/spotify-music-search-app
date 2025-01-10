@@ -33,16 +33,19 @@ class AppRouter extends React.Component {
   };
 
   render() {
+    const state = {
+      expiryTime: '0'
+    };
     return (
       <BrowserRouter>
         <div className="main">
           <Routes>
             <Route
               path="/"
-              exact={true}
-              element={(props) => (
-                <Home isValidSession={this.isValidSession} {...props} />
-              )}
+              exact
+              element={
+                <Home isValidSession={this.isValidSession} state={state} />
+              }
             />
             <Route
               path="/redirect"

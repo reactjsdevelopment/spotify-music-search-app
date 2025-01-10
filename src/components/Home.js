@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import Header from './Header';
 import { Navigate } from 'react-router-dom';
 
-const Home = (props) => {
+const Home = ( { isValidSession, location }) => {
   const {
     REACT_APP_CLIENT_ID,
     REACT_APP_AUTHORIZE_URL,
@@ -16,7 +16,7 @@ const Home = (props) => {
     window.location = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`;
   };
 
-  const { isValidSession, location } = props;
+  // const { isValidSession, location } = props;
   const { state } = location;
   const sessionExpired = state && state.session_expired;
 
